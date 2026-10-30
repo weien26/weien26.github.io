@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nga Wei En</title>
+<meta name="description" content="Nga Wei En — robot manipulation and embodied AI. Research Engineer at A*STAR IAIC; Computer Engineering, NTU.">
+<meta property="og:title" content="Nga Wei En">
+<meta property="og:description" content="Robot manipulation and embodied AI.">
+<meta property="og:image" content="https://weien26.github.io/assets/img/fyp_chain.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+
+<header class="intro">
+  <div class="intro-text">
+    <h1>Nga Wei En</h1>
+    <p>
+      I work on robot manipulation: getting learned policies (imitation, in-context and
+      vision-language-action models) to carry out long, multi-step tasks, in simulation and on real arms.
+    </p>
+    <p>
+      From December 2026 I'm a Research Engineer in the Embodied AI &amp; Robotics group at
+      <a href="https://www.a-star.edu.sg/">A*STAR</a> IAIC, working on manipulation. I'm finishing a
+      B.Eng. in Computer Engineering at <a href="https://www.ntu.edu.sg/">Nanyang Technological University</a>,
+      where my final year project, supervised by
+      Asst. Prof. Yoonchang Sung, chained a frozen
+      in-context policy into long-horizon tasks. Before that I was an embodied AI intern at Black Sesame
+      Technologies and an embedded systems intern at ST Engineering.
+    </p>
+    <p class="links">
+      <a href="mailto:wnga001@e.ntu.edu.sg">Email</a> &nbsp;/&nbsp;
+      <a href="cv.pdf">CV</a> &nbsp;/&nbsp;
+      <a href="https://www.linkedin.com/in/ngaweien26">LinkedIn</a> &nbsp;/&nbsp;
+      <a href="https://github.com/weien26">GitHub</a>
+    </p>
+  </div>
+  <div class="photo" aria-label="Photo of Nga Wei En">
+    <!-- Replace with <img src="assets/img/me.jpg" alt="Nga Wei En"> -->
+    <span>WE</span>
+  </div>
+</header>
+
+<section>
+  <h2>News</h2>
+  <ul class="news">
+    <li><span class="date">Dec 2026</span><span>Joining A*STAR IAIC as a Research Engineer in Embodied AI &amp; Robotics.</span></li>
+    <li><span class="date">Oct 2026</span><span>Submitted my final year project, <em>Which Demonstration, When to Switch, and What to Do</em>.</span></li>
+    <li><span class="date">May 2026</span><span>Started an embodied AI internship at Black Sesame Technologies, putting π0.5 on a real Franka arm.</span></li>
+    <li><span class="date">Jan 2025</span><span>Exchange semester at Peking University.</span></li>
+    <li><span class="date">Dec 2024</span><span>2nd place overall and Best AI Performance Award, APAC HPC-AI Competition (team).</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Projects</h2>
+
+  <article class="project highlight">
+    <div class="media">
+      <video src="assets/video/fyp_chain.mp4" poster="assets/img/fyp_chain.jpg" muted loop playsinline preload="metadata"></video>
+    </div>
+    <div class="body">
+      <h3>Which Demonstration, When to Switch, and What to Do: Chaining a Frozen In-Context Policy</h3>
+      <p class="meta"><strong>Nga Wei En</strong>, supervised by Yoonchang Sung<br>NTU Final Year Project, 2026</p>
+      <p class="links"><a href="https://github.com/weien26/ip-chain">code</a> / <a href="assets/video/fyp_agent_retry.mp4">video: agent retries a failed step</a></p>
+      <p>
+        Instant Policy can perform a skill from two demonstrations, but it can't pick its own demonstrations
+        or tell when a skill is done. I kept it frozen and added a Selector (which demonstrations), a Monitor
+        (when to switch) and a vision-language agent that retries failures, then ran a four-stage
+        open–place–close chain in RLBench. A training-free stack beat a learned one on unseen object sizes
+        (85% vs 74% chain success).
+      </p>
+    </div>
+  </article>
+
+  <article class="project">
+    <div class="media swap">
+      <video class="front" src="assets/video/fr3_pick.mp4" poster="assets/img/fr3_pick.jpg" muted loop playsinline preload="metadata"></video>
+      <video class="back" src="assets/video/sim_pick.mp4" poster="assets/img/sim_pick.jpg" muted loop playsinline preload="metadata"></video>
+    </div>
+    <div class="body">
+      <h3>π0.5 on a Real Franka FR3</h3>
+      <p class="meta">Black Sesame Technologies, 2026</p>
+      <p>
+        Generated 641 pick demonstrations in Isaac Lab and fine-tuned π0.5 on them, reaching 96% success over a
+        15&nbsp;×&nbsp;15&nbsp;cm workspace in simulation (hover over or tap the clip to see it). On the real arm, I ran the policy through a ROS&nbsp;2
+        bridge at 10&nbsp;Hz, fine-tuned on demonstrations from a teach-and-repeat recorder, and built an agentic
+        planner around the frozen policy (SAM&nbsp;3 segmentation and analytic kinematics) for multi-step tasks
+        such as cube stacking.
+      </p>
+    </div>
+  </article>
+
+  <article class="project">
+    <div class="media">
+      <video src="assets/video/hand_teleop.mp4" poster="assets/img/hand_teleop.jpg" muted loop playsinline preload="metadata"></video>
+    </div>
+    <div class="body">
+      <h3>Dexterous Hand Teleoperation</h3>
+      <p class="meta">Black Sesame Technologies, 2026</p>
+      <p>
+        Worked out the CAN protocol of an Inspire RH56 hand by testing (the shipped manuals were for other
+        models), wrote a driver with a grip-force limit, and drove it from a single camera with MediaPipe.
+        Moving arm teleoperation onto an impedance controller cut command-to-motion latency from 800&nbsp;ms to 38&nbsp;ms.
+      </p>
+    </div>
+  </article>
+
+  <article class="project">
+    <div class="media">
+      <video src="assets/video/mdp_car.mp4" poster="assets/img/mdp_car.jpg" muted loop playsinline preload="metadata"></video>
+    </div>
+    <div class="body">
+      <h3>STM32 Sensor-Driven Mobile Robot</h3>
+      <p class="meta">NTU Multidisciplinary Design Project (team), 2026</p>
+      <p>
+        Wrote the STM32 motion firmware for a car-like robot that drives to and photographs obstacle markers:
+        encoder-synchronised wheel speeds, gyro heading correction for straight runs and set-angle turns, IR and
+        ultrasonic range checks, and a framed UART command protocol to the Raspberry Pi.
+      </p>
+    </div>
+  </article>
+</section>
+
+<section>
+  <h2>Experience and education</h2>
+  <ul class="cv">
+    <li><span class="date">2026–</span><span><strong>A*STAR IAIC</strong>, Research Engineer, Embodied AI &amp; Robotics</span></li>
+    <li><span class="date">2026</span><span><strong>Black Sesame Technologies</strong>, Embodied AI Intern</span></li>
+    <li><span class="date">2025</span><span><strong>ST Engineering Land Systems</strong>, Intern (Embedded Systems): vehicle diagnostics over CAN, controller firmware. Intern @ ST Engineering Award 2025</span></li>
+    <li><span class="date">2023–2026</span><span><strong>Nanyang Technological University</strong>, B.Eng. (Hons) Computer Engineering</span></li>
+    <li><span class="date">2025</span><span><strong>Peking University</strong>, exchange semester</span></li>
+    <li><span class="date">2018–2021</span><span><strong>Singapore Polytechnic</strong>, Diploma in Information Technology</span></li>
+  </ul>
+</section>
+
+<footer>
+  Layout in the style of <a href="https://jonbarron.info/">Jon Barron's website</a>.
+</footer>
+
+</main>
+<script>
+  // Play clips only while on screen; hover (or tap) swaps a project's alternate clip in.
+  const io = new IntersectionObserver(entries => {
+    for (const e of entries) {
+      for (const v of e.target.querySelectorAll('video')) e.isIntersecting ? v.play().catch(() => {}) : v.pause();
+    }
+  }, { threshold: 0.25 });
+  document.querySelectorAll('.media').forEach(m => io.observe(m));
+  document.querySelectorAll('.swap').forEach(m => m.addEventListener('click', () => m.classList.toggle('flipped')));
+</script>
+</body>
+</html>

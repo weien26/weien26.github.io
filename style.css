@@ -1,0 +1,66 @@
+:root {
+  --text: #1f2328;
+  --muted: #5b6370;
+  --link: #1a5fb4;
+  --rule: #e4e6ea;
+  --highlight: #fff9e6;
+  --bg: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.6 Lato, "Helvetica Neue", Arial, sans-serif;
+}
+
+main { max-width: 820px; margin: 0 auto; padding: 48px 20px 32px; }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1 { font-size: 32px; font-weight: 400; margin: 0 0 16px; text-align: center; }
+h2 { font-size: 20px; font-weight: 400; margin: 40px 0 12px; }
+h3 { font-size: 15px; font-weight: 700; margin: 0 0 4px; }
+p { margin: 0 0 12px; }
+
+.intro { display: flex; gap: 32px; align-items: center; }
+.intro-text { flex: 1; }
+.intro .links { text-align: center; }
+
+.photo {
+  flex: 0 0 200px; height: 200px; border-radius: 50%;
+  background: #e8eef7; color: var(--link);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px; overflow: hidden;
+}
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.news, .cv { list-style: none; padding: 0; margin: 0; }
+.news li, .cv li { display: flex; gap: 16px; padding: 3px 0; }
+.date { flex: 0 0 84px; color: var(--muted); }
+
+.project { display: flex; gap: 24px; padding: 16px; margin: 0 -16px; align-items: flex-start; }
+.project.highlight { background: var(--highlight); }
+.project .media { flex: 0 0 200px; position: relative; aspect-ratio: 4 / 3; border-radius: 4px; overflow: hidden; background: #f2f3f5; }
+.project video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.project .meta { color: var(--muted); }
+.project .links { margin-bottom: 8px; }
+
+.swap { cursor: pointer; }
+.swap video { position: absolute; inset: 0; transition: opacity .3s; }
+.swap .back { opacity: 0; }
+.swap:hover .back, .swap.flipped .back { opacity: 1; }
+
+footer { margin-top: 48px; font-size: 13px; color: var(--muted); text-align: right; }
+
+@media (max-width: 640px) {
+  main { padding-top: 32px; }
+  .intro { flex-direction: column-reverse; gap: 16px; }
+  .photo { flex-basis: auto; width: 140px; height: 140px; font-size: 28px; }
+  .project { flex-direction: column; gap: 12px; }
+  .project .media { flex-basis: auto; width: 100%; }
+  .date { flex-basis: 72px; }
+}
